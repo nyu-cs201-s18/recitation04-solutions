@@ -4,26 +4,30 @@
 
 /*
 Using the >> and << bitwise operators can aid us in trying
-to extract a particular bit in a bit vector.
+to extract a particular bit or a sequence of bits in a bit vector.
 */
 
 int main()
 {
     /*
-    TODO: Use a bit shift and a mask in order to get bit
-    value of the 8's bit in 'a'.
-
-    Hint: Use a right shift to get 'a' into the desired position
+    TODO: Use a bit shifts and a mask in order to get bit
+    value of the 8's and 4's bits in 'a' and 'b' (these are the third and fourth bits from the right).
+    Hint: Use a right shift to get 'a'/'b' into the desired position
           and then bitwise AND it with your 'mask' to get the result.
     */
 
-    int a = 0x10111;
+    int a = 0b00001011010111;
+    int b = 0b11001001001101;
 
-    /* Initialize 'mask' and 'bit' with the right values */
-    int mask = 0b01;
-    int bit = (a >> 3) & mask;
+    /* Initialize 'mask', 'bita' and 'bitb' with the right values */
+    int mask = 0b11;   //this should be just a number in binary 
+    
+    int bita = (a>>2)&mask;    //this should be an expression involving a, shift operator and mask variable 
 
-    assert(bit == 0b0);
+    int bitb = (b>>2)&mask;    //this should be an expression involving b, shift operator and mask variable 
+
+    assert(bita == 0b01);
+    assert(bitb == 0b11);
 
     part_completed(8);
 
